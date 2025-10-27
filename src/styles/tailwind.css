@@ -32,8 +32,8 @@
   --color-white: #ffffff;
 
   /*Typografi */
-  --font-display: "IBM Plex Mono", monospace;
-  --font-sans: "Climate Crisis", sans-serif;
+  --font-display: "Climate Crisis", sans-serif;
+  --font-sans: "IBM Plex Mono", monospace;
 }
 
 @layer base {
