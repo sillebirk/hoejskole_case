@@ -44,3 +44,19 @@
 
 @layer utilities {
 }
+
+.outline-primary {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-primary); /* Mobile default */
+}
+
+.outline-primary:hover {
+  color: var(--color-primary);
+  -webkit-text-stroke: 0;
+}
+
+@media (min-width: 768px) {
+  .outline-primary {
+    -webkit-text-stroke: 2px var(--color-primary); /* Desktop/tablet */
+  }
+}

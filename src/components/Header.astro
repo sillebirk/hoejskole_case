@@ -1,28 +1,129 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
+import Footer from "./Footer.astro";
+import Heading from "./Heading.astro";
 ---
-<header x-data="{ showmenu: false }" class="" >
-    <div id="navbar" class="container mx-auto p-4 flex flex-row justify-between items-center">
-        <div id="logo" class="">
-            <a href="#" class="font-display text-4xl">Astro-Tailwind starter - udvidet udgave E25</a>
-        </div>
-        <nav id="desktopmenu" class="hidden lg:block">
-            <ul class="flex flex-row gap-4">
-                <li class=""><a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}>Forside</a></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
-                <li class=""><a href="/komponentbibliotek/" class={currentPath === "komponentbibliotek/" ? "italic font-bold" : "italic"}>Komponentbibliotek</a></li>
-            </ul>
-        </nav>
-        <button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
-</button>
+
+<header x-data="{ showmenu: false }" class="relative z-50">
+  <div
+    id="navbar"
+    class="w-full flex flex-row justify-between items-center px-6 pt-6 md:pt-0"
+  >
+    <div id="logo" class="mt-0 md:mt-10">
+      <a href="/" class="text-accent"><Heading style="h1">Höjskolen</Heading></a
+      >
     </div>
-    <nav id="mobilmenu" class="flex flex-col content-center" 
-    x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
-        <ul class="border-t-2 border-b-2 border-black">
-            <li class="text-center py-2"><a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}>Forside</a></li>
-            <li class="text-center py-2"><a href="/komponentbibliotek/" class={currentPath === "komponentbibliotek/" ? "italic font-bold" : "italic"}>Komponentbibliotek</a></li>
-        </ul>
-    </nav>
+    <button
+      id="burgermenu"
+      class="ml-auto text-accent"
+      x-on:click="showmenu = ! showmenu"
+      aria-label="Åbn menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="w-8 h-8"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Fullscreen overlay menu -->
+  <nav
+    id="mobilmenu"
+    x-show="showmenu"
+    x-transition:enter="transition transform duration-300"
+    x-transition:enter-start="translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transition transform duration-200"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="translate-x-full"
+    class="fixed inset-0 bg-secondary-2 flex flex-col justify-between z-40 transform"
+  >
+    <!-- Topbar med H1 + luk-knap -->
+    <div class="flex justify-between items-center px-6 pt-6">
+      <div
+        x-show="showmenu"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-x-6"
+        x-transition:enter-end="opacity-100 translate-x-0"
+        class="text-accent"
+      >
+        <Heading style="h1">Höjskolen</Heading>
+      </div>
+
+      <button
+        class="text-accent"
+        x-on:click="showmenu = false"
+        x-transition:enter="transition ease-out duration-300 delay-100"
+        x-transition:enter-start="opacity-0 translate-x-6"
+        x-transition:enter-end="opacity-100 translate-x-0"
+        aria-label="Luk menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu-links -->
+    <ul
+      class="flex flex-col items-end text-right gap-2 uppercase pr-6 mt-24 md:mt-5 mb-10"
+      x-transition:enter="transition ease-out duration-300 delay-150"
+      x-transition:enter-start="opacity-0 translate-x-8"
+      x-transition:enter-end="opacity-100 translate-x-0"
+    >
+      <li>
+        <a
+          href="/hojskoleophold/"
+          class="transition-colors duration-200 text-accent hover:text-primary"
+          ><Heading style="h4">Højskoleophold</Heading></a
+        >
+      </li>
+      <li>
+        <a
+          href="/priser/"
+          class="transition-colors duration-200 text-accent hover:text-primary"
+          ><Heading style="h4">Priser</Heading></a
+        >
+      </li>
+      <li>
+        <a
+          href="/infomoder/"
+          class="transition-colors duration-200 text-accent hover:text-primary"
+          ><Heading style="h4">Infomøder</Heading></a
+        >
+      </li>
+      <li>
+        <a
+          href="/tilmeld/"
+          class="transition-colors duration-200 text-secondary hover:underline"
+          ><Heading style="h4">Tilmeld dig her</Heading></a
+        >
+      </li>
+    </ul>
+
+    <!-- Footer nederst -->
+    <div class="mt-auto w-full">
+      <Footer />
+    </div>
+  </nav>
 </header>

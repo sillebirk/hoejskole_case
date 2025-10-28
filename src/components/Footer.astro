@@ -1,7 +1,35 @@
 ---
+import Heading from "./Heading.astro";
 ---
-<footer class="bg-primary-500 text-white">
-    <div class="container mx-auto p-4">
-        <p>&copy; 2025</p>
+
+<footer class="bg-accent pl-6">
+  <section>
+    <div class="text-[15px] text-primary md:grid grid-cols-4 gap-8">
+      <div class="md:col-span-1">
+        <p class="py-4">
+          HÖJSKOLENDK <br />
+          Rosenørns Allé 31 <br />
+          1970 Frederiksberg <br />
+          Danmark
+        </p>
+      </div>
+      <div class="md:col-span-1">
+        <p class="py-4">
+          KONTAKT <br />
+          Telefon: 7027 9007 <br />
+          Mandag til Fredag // Kl. 10.00-16.00 <br />
+          Mail: info@hojskolendk.dk
+        </p>
+      </div>
+
+      <div class="md:col-span-2">
+        <p class="py-4">SAMARBEJDSPARTNERE</p>
+      </div>
     </div>
+    <div></div>
+  </section>
+
+  <div class="text-accent outline-primary">
+    <Heading style="h6">HÖJSKOLEN</Heading>
+  </div>
 </footer>
