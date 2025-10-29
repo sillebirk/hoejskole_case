@@ -8,30 +8,32 @@ import Tilmeld from "../components/Tilmeld.astro";
 ---
 
 <MainLayout title="Titel">
-  <main class="container mx-auto md:mx-0 bg-primary">
-    <section class="w-full grid lg:grid-cols-12">
+  <main class="mx-auto md:mx-0 bg-primary">
+    <section class="w-full grid md:grid-cols-12">
       <!-- Billede til venstre, fylder 6 kolonner på desktop -->
-      <div class="lg:col-span-6 w-full h-full flex">
+      <div class="md:col-span-5 w-full h-full flex">
         <img
           src="/img/hero_img_result.webp"
           alt="Gruppebillede af glade elever på rejse"
-          class="object-cover w-full h-full max-h-[375px] md:max-h-[520px] md:w-[520px]"
+          class="object-cover w-full h-full max-h-[375px] md:max-h-[600px] md:max-w-full"
           style="object-position: left;"
         />
       </div>
       <!-- Tekst og heading til højre, fylder 6 kolonner på desktop -->
-      <div class="bg-secondary lg:col-span-6 flex flex-col pl-4 ml-7 my-7">
-        <Heading style="h3" stylingclasses="text-primary lg:text-right">
+      <div
+        class="bg-secondary flex flex-col pl-4 ml-7 my-7 md:my-0 md:ml-0 md:col-span-6"
+      >
+        <Heading style="h3" stylingclasses="text-primary md:text-left">
           HØJSKOLE I UDLANDET
         </Heading>
         <div
           role="presentation"
-          class="w-56 h-[2px] bg-primary my-4 self-start lg:self-end rounded-full"
+          class="w-56 h-[2px] bg-primary my-4 self-start md:self-start rounded-full md:mb-7 md:-mt-2 md:w-100"
         >
         </div>
         <Heading
           style="h5"
-          stylingclasses=" text-primary lg:pt-80 lg:text-right"
+          stylingclasses=" text-primary pb-2 md:pt-1 md:text-left md:pb-5"
         >
           FIND DIT LIVS EVENTYR
         </Heading>
@@ -54,27 +56,30 @@ import Tilmeld from "../components/Tilmeld.astro";
         </div>
       </div>
       <div
-        class="lg:col-span-6 flex items-center justify-end gap-8 pr-8 pb-8 ml-7"
+        class="flex items-center justify-end gap-8 pr-8 pb-8 ml-7 md:col-span-7 md:col-start-5 md:pr-0 md:pt-5"
       >
         <img
           src="/img/arrow_secondary.svg"
           alt="Pil mod højre"
-          class="w-180px] md:w-[400px] object-contain"
+          class="w-[180px] md:w-[300px] object-contain"
         />
         <Button
           variant="primary"
-          stylingclasses="bg-accent text-primary text-[16px] uppercase tracking-wide hover:bg-secondary transition-all duration-300"
+          stylingclasses="bg-accent text-primary text-[16px] uppercase tracking-wide hover:bg-secondary transition-all duration-300 md:text-[36px]"
         >
-          OVERBLIK & <br />PRISER
+          OVERBLIK &<br class="md:hidden" /> PRISER
         </Button>
       </div>
-      <Heading style="h3" stylingclasses="text-secondary text-center pt-6">
+      <Heading
+        style="h3"
+        stylingclasses="text-secondary text-center pt-6 md:col-span-12 md:mt-10"
+      >
         HØJSKOLEOPHOLD
       </Heading>
       <!-- DIVIDER -->
       <div
         role="presentation"
-        class="w-78 h-[2px] bg-secondary my-6 mx-auto rounded-full"
+        class="w-78 h-[2px] bg-secondary -mt-1 my-6 mx-auto rounded-full md:col-span-12 md:w-155 md:-mt-2"
       >
       </div>
     </section>
