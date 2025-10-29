@@ -4,26 +4,24 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
 import RejseCard from "../components/RejseCard.astro";
+import Tilmeld from "../components/Tilmeld.astro";
 ---
 
 <MainLayout title="Titel">
-  <main class="container mx-auto bg-primary">
-    <section class="w-full grid lg:grid-cols-12 lg:gap-0 lg:min-h-[600px]">
+  <main class="container mx-auto md:mx-0 bg-primary">
+    <section class="w-full grid lg:grid-cols-12">
       <!-- Billede til venstre, fylder 6 kolonner på desktop -->
       <div class="lg:col-span-6 w-full h-full flex">
         <img
           src="/img/hero_img_result.webp"
           alt="Gruppebillede af glade elever på rejse"
-          class="object-cover w-full h-full max-h-[375px] lg:max-h-none"
+          class="object-cover w-full h-full max-h-[375px] md:max-h-[520px] md:w-[520px]"
           style="object-position: left;"
         />
       </div>
       <!-- Tekst og heading til højre, fylder 6 kolonner på desktop -->
       <div class="bg-secondary lg:col-span-6 flex flex-col pl-4 ml-7 my-7">
-        <Heading
-          style="h3"
-          stylingclasses="text-tertiary-400 text-primary lg:text-right pt-3"
-        >
+        <Heading style="h3" stylingclasses="text-primary lg:text-right">
           HØJSKOLE I UDLANDET
         </Heading>
         <div
@@ -86,8 +84,8 @@ import RejseCard from "../components/RejseCard.astro";
       class="w-screen mx-0 overflow-hidden"
     >
       <div class="relative w-full overflow-hidden">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="w-full md:h-[300px]">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-0">
+          <div class="w-full md:h-[700px]">
             <RejseCard
               title="BRASILIEN, COLOMBIA, COSTA RICA & MEXICO"
               img="/img/rejse_1_img_result.webp"
@@ -135,5 +133,7 @@ import RejseCard from "../components/RejseCard.astro";
     </section>
     <!-- INFOMØDE -->
     <section></section>
-  </main>
-</MainLayout>
+    <!-- TILMELD DIG  -->
+    <Tilmeld < main />
+  </main></MainLayout
+>
