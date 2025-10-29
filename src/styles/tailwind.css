@@ -21,7 +21,8 @@
 }
 
 @theme {
-  /* Her tilføjes theme variable // tokens */
+  /*custom cursor*/
+  --flycursor: url(/custom-cursor.svg) 10 10, pointer;
 
   /*Farver */
   --color-primary: #fff1e3;
@@ -37,6 +38,10 @@
 }
 
 @layer base {
+  a,
+  button {
+    @apply cursor-(--flycursor);
+  }
 }
 
 @layer components {
