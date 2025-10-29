@@ -1,0 +1,70 @@
+---
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+---
+
+<section
+  class="relative bg-cover bg-center bg-no-repeat min-h-[100vh] md:min-h-[150vh] flex items-center justify-center"
+  style="background-image: url('/img/baggrund-info.jpg');"
+>
+  <div
+    class="relative z-10 bg-accent text-center
+           w-full min-h-[60vh]flex flex-col justify-center px-6 py-10 md:w-83.6875rem md:max-h-[800px]
+           md:p-16 md:max-w-[900px]"
+  >
+    <div>
+      <Heading style="h1" stylingclasses="mb-4 text-primary ">Infomøde</Heading>
+      <Text size="small" stylingclasses="mb-4 text-primary md:mb-20">
+        Kig forbi til et af vores hyggelige infomøder i København, Aarhus eller
+        online – vi glæder os til at møde dig!
+      </Text>
+    </div>
+    <div class="md:grid gap-8 md:grid-cols-3 md:mb-20">
+      <div>
+        <Heading style="h5" stylingclasses="mb-4 text-secondary"
+          >(KØBENHAVN)</Heading
+        >
+        <Text size="small" stylingclasses="mb-4 text-primary">
+          18. november 2025 <br />
+          kl. 17:00 - 19:00
+        </Text>
+      </div>
+      <div>
+        <Heading style="h5" stylingclasses="mb-4 text-secondary"
+          >(AARHUS)</Heading
+        >
+        <Text size="small" stylingclasses="mb-4 text-primary">
+          6. november 2025 <br />
+          kl. 17:00 - 19:00
+        </Text>
+      </div>
+      <div>
+        <Heading style="h5" stylingclasses="mb-4 text-secondary"
+          >(ONLINE)</Heading
+        >
+        <Text size="small" stylingclasses="mb-4 text-primary">
+          12. november 2025 <br />
+          10. december 2025 <br /> kl. 17:00 - 19:00
+        </Text>
+      </div>
+    </div>
+
+    <div
+      class="mt-8 flex flex-row justify-center items-center gap-4 md:flex-row md:justify-center"
+    >
+      <img src="/img/pilinfo.svg" alt="Pil venstre" class="w-12 md:w-30" />
+      <button
+        ><Heading
+          style="h5"
+          stylingclasses="mb-4 text-secondary bg-primary px-6 py-2 inline-block hover:bg-secondary hover:text-primary"
+          >TILMELD <br class="md:hidden" /> INFOMØDE</Heading
+        ></button
+      >
+      <img
+        src="/img/pilinfo.svg"
+        alt="Pil venstre"
+        class="w-12 md:w-30 rotate-180"
+      />
+    </div>
+  </div>
+</section>
