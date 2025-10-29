@@ -173,16 +173,20 @@ import Info from "../components/Info.astro";
     );
   });
 
-  // Parallax kun på desktop, eller smooth på mobil
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    // Kun desktop (md og op)
-    scroll(animate(".parallaxelement", { y: [0, 300] }), {
-      target: document.querySelector(".parallaxelement"),
-    });
-  } else {
-    // Mobil: lavere y og længere duration for mere smooth
-    scroll(animate(".parallaxelement", { y: [0, 50] }, { duration: 3 }), {
-      target: document.querySelector(".parallaxelement"),
-    });
-  }
+  window.addEventListener("load", () => {
+    const element = document.querySelector(".parallaxelement");
+    if (!element) return;
+
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      scroll(animate(element, { y: [0, 300] }), {
+        target: element,
+        offset: ["start end", "end start"],
+      });
+    } else {
+      scroll(animate(element, { y: [0, 60] }), {
+        target: element,
+        offset: ["start end", "end start"],
+      });
+    }
+  });
 </script>
