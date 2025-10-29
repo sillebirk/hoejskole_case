@@ -139,17 +139,24 @@ import Info from "../components/Info.astro";
       </div>
     </section>
     <!-- INFOMØDE -->
-    <section>
-      <Info < main />
+    <section
+      class="mt-20 mb-10 md:mb-0 relative bg-cover bg-center bg-no-repeat min-h-[90vh] md:min-h-[200vh] flex items-center justify-center md:items-start md:pt-50"
+      style="background-image: url('/img/baggrund-info.jpg');"
+    >
+      <div class="parallaxelement">
+        <Info />
+      </div>
     </section>
     <!-- TILMELD DIG  -->
-    <Tilmeld < main />
-  </main></MainLayout
->
+    <Tilmeld />
+  </main>
+</MainLayout>
 
 <script>
   /* Import af Motion One bibliotek */
   import { animate, stagger, inView, scroll } from "motion";
+
+  animate("body", { opacity: [0, 1] }, { duration: 1.3 });
 
   /* Stagger animation */
   inView("#stagger", () => {
@@ -165,4 +172,17 @@ import Info from "../components/Info.astro";
       },
     );
   });
+
+  // Parallax kun på desktop, eller smooth på mobil
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    // Kun desktop (md og op)
+    scroll(animate(".parallaxelement", { y: [0, 300] }), {
+      target: document.querySelector(".parallaxelement"),
+    });
+  } else {
+    // Mobil: lavere y og længere duration for mere smooth
+    scroll(animate(".parallaxelement", { y: [0, 50] }, { duration: 3 }), {
+      target: document.querySelector(".parallaxelement"),
+    });
+  }
 </script>
