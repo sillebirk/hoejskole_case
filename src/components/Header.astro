@@ -8,7 +8,7 @@ import Heading from "./Heading.astro";
 <header x-data="{ showmenu: false }" class="relative z-50">
   <div
     id="navbar"
-    class="w-full flex flex-row justify-between items-center px-6 pt-6 md:pt-0"
+    class="w-full flex flex-row justify-between items-center px-6 pt-6 md:pt-0 md:px-10"
   >
     <div id="logo" class="mt-0 md:mt-10">
       <a href="/" class="text-accent"><Heading style="h1">Höjskolen</Heading></a
@@ -20,19 +20,7 @@ import Heading from "./Heading.astro";
       x-on:click="showmenu = ! showmenu"
       aria-label="Åbn menu"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        class="w-8 h-8"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-      </svg>
+      <img src="/public/img/nav_icon_desktop.png" alt="" class="w-9 md:w-15" />
     </button>
   </div>
 
@@ -49,7 +37,7 @@ import Heading from "./Heading.astro";
     class="fixed inset-0 bg-secondary-2 flex flex-col justify-between z-40 transform"
   >
     <!-- Topbar med H1 + luk-knap -->
-    <div class="flex justify-between items-center px-6 pt-6">
+    <div class="flex justify-between items-center px-6 pt-6 md:px-10">
       <div
         x-show="showmenu"
         x-transition:enter="transition ease-out duration-300"
@@ -68,25 +56,13 @@ import Heading from "./Heading.astro";
         x-transition:enter-end="opacity-100 translate-x-0"
         aria-label="Luk menu"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
+        <img src="/public/img/back_desktop.png" alt="" class="w-9 md:w-15" />
       </button>
     </div>
 
     <!-- Menu-links -->
     <ul
-      class="flex flex-col items-end text-right gap-2 uppercase pr-6 mt-24 md:mt-5 mb-10"
+      class="flex flex-col items-end text-right gap-2 uppercase pr-6 mt-10 md:mt-0 md:mb-7 md:pr-10"
       x-transition:enter="transition ease-out duration-300 delay-150"
       x-transition:enter-start="opacity-0 translate-x-8"
       x-transition:enter-end="opacity-100 translate-x-0"
